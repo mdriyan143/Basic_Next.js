@@ -3,19 +3,25 @@ import Link from 'next/link';
 import React from 'react';
 
 import { usePathname } from 'next/navigation'
+import useUser from '../hooks/useUser';
 
 const Navbar = () => {
 
 
     const pathname = usePathname();
+    const user = useUser();
 
     console.log('pathname in navbar', pathname);
+    console.log('from context in navbar', user);
 
     const links = <>
         <li><Link className={pathname === '/docs' ? 'text-blue-500': ''} href="/docs">Docs</Link></li>
         <li><Link className={pathname === '/showcase' ? 'text-blue-500': ''} href="/showcase">Showcase</Link></li>
         
         <li><Link href="/blogs">Blogs</Link></li>
+        <li><Link href="/posts">Posts</Link></li>
+        <li><Link href="/products">Products</Link></li>
+        <li><Link href="/books">Books</Link></li>
         <li><Link href="/about">About</Link></li>
         <li><Link href="/about/developers">Developers</Link></li>
         <li><Link href="/dashboard">Dashboard</Link></li>
